@@ -16,7 +16,7 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
-  checkov-job:
+  checkov-cfngoat:
     runs-on: ubuntu-latest
     name: checkov-action
     steps:
@@ -36,3 +36,22 @@ jobs:
           log_level: DEBUG # optional: set log level. Default WARNING
       
       - run: echo "This job's status is ${{ job.status }}."
+
+  checkov-terragoat:
+    runs-on: ubuntu-latest
+    name: checkov-action
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@main
+
+      - name: Run Checkov action
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: terragoat/
+          quiet: true # optional: display only failed checks
+          soft_fail: true # optional: do not return an error code if there are failed checks
+          framework: all # optional: run only on a specific infrastructure {cloudformation,terraform,kubernetes,all}
+          output_format: json # optional: the output format, one of: cli, json, junitxml, github_failed_only
+          download_external_modules: true # optional: download external terraform modules from public git repositories and terraform registry
+          log_level: DEBUG # optional: set log level. Default WARNING
