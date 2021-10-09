@@ -1,7 +1,7 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  test-job:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -34,4 +34,5 @@ jobs:
           output_format: json # optional: the output format, one of: cli, json, junitxml, github_failed_only
           download_external_modules: true # optional: download external terraform modules from public git repositories and terraform registry
           log_level: DEBUG # optional: set log level. Default WARNING
-
+      
+      - run: echo "This job's status is ${{ job.status }}."
