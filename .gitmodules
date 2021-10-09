@@ -1,3 +1,6 @@
 [submodule "cfngoat"]
 	path = cfngoat
 	url = https://github.com/bridgecrewio/cfngoat
+[submodule "terragoat"]
+	path = terragoat
+	url = https://github.com/bridgecrewio/terragoat.git
