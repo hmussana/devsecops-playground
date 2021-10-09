@@ -15,3 +15,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+
+  checkov-job:
+  - name: Checkov GitHub Action
+    uses: bridgecrewio/checkov-action@v12.641.0
