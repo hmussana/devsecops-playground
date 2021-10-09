@@ -1,2 +1,2 @@
 # devsecops-playground
-DevSecOps playground for testing various tools
+DevSecOps playground for hosting vulnerable stuff and playing around with various tools
